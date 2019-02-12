@@ -1,0 +1,20 @@
+version: "3"
+services:
+  agenda:
+    image: nginx
+    volumes:
+      - ./agenda:/usr/share/nginx/html
+    deploy:
+      labels:
+        - "traefik.port=80"
+        - "traefik.backend=agenda"
+        - "traefik.docker.network=traefik-net"
+        - "traefik.frontend.rule=Host:agenda.wallforfry.fr, je-veux-mon-agenda-et.jaimelef.ist"
+    networks:
+      - traefik-net
+    #ports:
+    #  - 8081:80
+
+networks:
+  traefik-net:
+    external: true
