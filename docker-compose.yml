@@ -3,7 +3,7 @@ services:
   agenda:
     image: nginx
     volumes:
-      - ./agenda:/usr/share/nginx/html
+      - agenda:/usr/share/nginx/html
     deploy:
       labels:
         - "traefik.port=80"
